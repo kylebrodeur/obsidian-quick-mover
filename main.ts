@@ -264,6 +264,7 @@ class QuickMoverSettingTab extends PluginSettingTab {
                         await this.plugin.saveSettings();
                     }))
                 .addButton(button => button
+                    .setClass('clickable-icon')
                     .setIcon('trash')
                     .setTooltip('Delete destination')
                     .onClick(async () => {

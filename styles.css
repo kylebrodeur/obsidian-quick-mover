@@ -1,31 +1,28 @@
 .quick-mover-grid-header {
     display: grid;
-    grid-template-columns: 2fr 3fr 2fr 30px;
-    gap: 12px;
-    padding: 0 24px;
-    margin-bottom: 12px;
-    margin-top: 24px;
-}
-
-.quick-mover-header {
+    grid-template-columns: 2fr 3fr 2fr var(--size-4-8);
+    gap: var(--size-4-3);
+    padding: 0 var(--size-4-6);
+    margin-bottom: var(--size-4-2);
     color: var(--text-muted);
     font-size: 0.8em;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    margin-top: var(--size-4-6);
 }
 
 .quick-mover-destination-item {
-    border: 1px solid var(--background-modifier-border);
-    border-radius: 4px;
-    padding: 8px;
-    margin-bottom: 8px;
+    border: var(--border-width) solid var(--background-modifier-border);
+    border-radius: var(--radius-s);
+    padding: var(--size-4-2);
+    margin-bottom: var(--size-4-2);
 }
 
 .quick-mover-destination-item .setting-item-control {
     display: grid;
-    grid-template-columns: 2fr 3fr 2fr 30px;
-    gap: 12px;
+    grid-template-columns: 2fr 3fr 2fr var(--size-4-8);
+    gap: var(--size-4-3);
     align-items: center;
 }
 
@@ -33,27 +30,23 @@
     width: 100%;
 }
 
-.quick-mover-destinations {
-    margin-top: 24px;
-}
-
 .suggestion-container {
     position: absolute;
     background: var(--background-primary);
-    border: 1px solid var(--background-modifier-border);
-    border-radius: 4px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    max-height: 200px;
+    border: var(--border-width) solid var(--background-modifier-border);
+    border-radius: var(--radius-s);
+    box-shadow: var(--shadow-s);
+    max-height: var(--size-4-16);
     overflow-y: auto;
     z-index: 1000;
     width: 100%;
-    padding: 4px; /* Add padding */
+    padding: var(--size-4-1);
 }
 
 .suggestion-item {
-    padding: 6px 8px; /* Reduce padding */
+    padding: var(--size-2-3) var(--size-4-2);
     cursor: pointer;
-    border-radius: 3px; /* Add border-radius */
+    border-radius: var(--radius-xs);
 }
 
 .suggestion-item:hover {
@@ -62,6 +55,10 @@
 
 .setting-item-info {
     display: none !important;
+}
+
+.search-input-container {
+    width: 100% !important;
 }
 
 .search-input-container:before {
@@ -76,33 +73,33 @@
 @media screen and (max-width: 768px) {
     .quick-mover-grid-header {
         grid-template-columns: 1fr;
-        gap: 8px;
-        padding: 0 12px;
+        gap: var(--size-4-2);
+        padding: 0 var(--size-4-3);
     }
 
     .quick-mover-destination-item .setting-item-control {
         grid-template-columns: 1fr;
-        gap: 8px;
+        gap: var(--size-4-2);
     }
 
     .quick-mover-destination-item {
-        padding: 12px;
-        margin-bottom: 12px;
+        padding: var(--size-4-3);
+        margin-bottom: var(--size-4-3);
     }
 
     /* Improve touch targets */
     .quick-mover-destination-item input,
     .quick-mover-destination-item select,
     .quick-mover-destination-item button {
-        min-height: 36px;
-        padding: 8px;
+        min-height: var(--size-4-9);
+        padding: var(--size-4-2);
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
     }
 
     /* Hide header labels on mobile */
-    .quick-mover-header {
+    .quick-mover-grid-header {
         display: none;
     }
 
@@ -117,8 +114,8 @@
 /* Improve suggestion list on mobile */
 @media screen and (max-width: 768px) {
     .suggestion-item {
-        padding: 12px;
-        min-height: 44px;
+        padding: var(--size-4-3);
+        min-height: var(--size-4-11);
         display: flex;
         align-items: center;
     }
@@ -129,48 +126,46 @@
 }
 
 @media screen and (max-width: 550px) {
+    .quick-mover-destinations {
+        margin-top: 0 !important;
+    }
     .quick-mover-destination-item {
-        padding: 8px;
-        margin-bottom: 8px;
+        padding: var(--size-4-2);
+        margin-bottom: var(--size-4-2);
     }
 
     .quick-mover-destination-item .setting-item-control {
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: var(--size-4-2);
     }
 
     .quick-mover-destination-item input,
     .quick-mover-destination-item select {
-        font-size: 14px;
-        min-height: 32px;
-        padding: 4px 8px;
+        font-size: var(--font-ui-smaller);
+        min-height: var(--size-4-8);
+        padding: var(--size-4-1) var(--size-4-2);
     }
 
     .suggestion-container {
         max-height: 40vh;
-        width: calc(100% - 16px);
-        left: 8px;
-        right: 8px;
+        width: calc(100% - var(--size-4-4));
+        left: var(--size-4-2);
+        right: var(--size-4-2);
+        box-shadow: var(--shadow-s);
     }
 
     .suggestion-item {
-        padding: 8px;
-        min-height: 36px;
-        font-size: 14px;
+        padding: var(--size-4-2);
+        min-height: var(--size-4-9);
+        font-size: var(--font-ui-small);
         white-space: normal;
         word-break: break-word;
     }
 
-    .quick-mover-grid-header {
-        padding: 0 8px;
-        margin-bottom: 8px;
-        margin-top: 16px;
-    }
-
     button {
-        padding: 4px 8px;
+        padding: var(--size-4-1) var(--size-4-2);
         height: auto;
-        min-width: 28px;
+        min-width: var(--size-4-8);
     }
 }
