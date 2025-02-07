@@ -1,4 +1,8 @@
-.quick-mover-grid-header {
+.quick-mover-plugin {
+    /* Root level styles if needed */
+}
+
+.quick-mover-plugin .quick-mover-grid-header {
     display: grid;
     grid-template-columns: 2fr 3fr 2fr var(--size-4-8);
     gap: var(--size-4-3);
@@ -12,25 +16,25 @@
     margin-top: var(--size-4-6);
 }
 
-.quick-mover-destination-item {
+.quick-mover-plugin .quick-mover-destination-item {
     border: var(--border-width) solid var(--background-modifier-border);
     border-radius: var(--radius-s);
     padding: var(--size-4-2);
     margin-bottom: var(--size-4-2);
 }
 
-.quick-mover-destination-item .setting-item-control {
+.quick-mover-plugin .quick-mover-destination-item .setting-item-control {
     display: grid;
     grid-template-columns: 2fr 3fr 2fr var(--size-4-8);
     gap: var(--size-4-3);
     align-items: center;
 }
 
-.quick-mover-destination-item input {
+.quick-mover-plugin .quick-mover-destination-item input {
     width: 100%;
 }
 
-.suggestion-container {
+.quick-mover-plugin .suggestion-container {
     position: absolute;
     background: var(--background-primary);
     border: var(--border-width) solid var(--background-modifier-border);
@@ -43,54 +47,54 @@
     padding: var(--size-4-1);
 }
 
-.suggestion-item {
+.quick-mover-plugin .suggestion-item {
     padding: var(--size-2-3) var(--size-4-2);
     cursor: pointer;
     border-radius: var(--radius-xs);
 }
 
-.suggestion-item:hover {
+.quick-mover-plugin .suggestion-item:hover {
     background: var(--background-modifier-hover);
 }
 
-.setting-item-info {
+.quick-mover-plugin .setting-item-info {
     display: none !important;
 }
 
-.search-input-container {
+.quick-mover-plugin .search-input-container {
     width: 100% !important;
 }
 
-.search-input-container:before {
+.quick-mover-plugin .search-input-container:before {
     display: none !important;
 }
 
-.search-input-container input {
+.quick-mover-plugin .search-input-container input {
     padding-inline-start: .5rem !important;
 }
 
 /* Add responsive styles */
 @media screen and (max-width: 768px) {
-    .quick-mover-grid-header {
+    .quick-mover-plugin .quick-mover-grid-header {
         grid-template-columns: 1fr;
         gap: var(--size-4-2);
         padding: 0 var(--size-4-3);
     }
 
-    .quick-mover-destination-item .setting-item-control {
+    .quick-mover-plugin .quick-mover-destination-item .setting-item-control {
         grid-template-columns: 1fr;
         gap: var(--size-4-2);
     }
 
-    .quick-mover-destination-item {
+    .quick-mover-plugin .quick-mover-destination-item {
         padding: var(--size-4-3);
         margin-bottom: var(--size-4-3);
     }
 
     /* Improve touch targets */
-    .quick-mover-destination-item input,
-    .quick-mover-destination-item select,
-    .quick-mover-destination-item button {
+    .quick-mover-plugin .quick-mover-destination-item input,
+    .quick-mover-plugin .quick-mover-destination-item select,
+    .quick-mover-plugin .quick-mover-destination-item button {
         min-height: var(--size-4-9);
         padding: var(--size-4-2);
         width: 100%;
@@ -99,13 +103,13 @@
     }
 
     /* Hide header labels on mobile */
-    .quick-mover-grid-header {
+    .quick-mover-plugin .quick-mover-grid-header {
         display: none;
     }
 
     /* Stack the settings vertically */
-    .setting-item-info,
-    .setting-item-control {
+    .quick-mover-plugin .setting-item-info,
+    .quick-mover-plugin .setting-item-control {
         flex-direction: column;
         align-items: stretch;
     }
@@ -113,41 +117,41 @@
 
 /* Improve suggestion list on mobile */
 @media screen and (max-width: 768px) {
-    .suggestion-item {
+    .quick-mover-plugin .suggestion-item {
         padding: var(--size-4-3);
         min-height: var(--size-4-11);
         display: flex;
         align-items: center;
     }
 
-    .suggestion-container {
+    .quick-mover-plugin .suggestion-container {
         max-height: 50vh;
     }
 }
 
 @media screen and (max-width: 550px) {
-    .quick-mover-destinations {
+    .quick-mover-plugin .quick-mover-destinations {
         margin-top: 0 !important;
     }
-    .quick-mover-destination-item {
+    .quick-mover-plugin .quick-mover-destination-item {
         padding: var(--size-4-2);
         margin-bottom: var(--size-4-2);
     }
 
-    .quick-mover-destination-item .setting-item-control {
+    .quick-mover-plugin .quick-mover-destination-item .setting-item-control {
         display: flex;
         flex-direction: column;
         gap: var(--size-4-2);
     }
 
-    .quick-mover-destination-item input,
-    .quick-mover-destination-item select {
+    .quick-mover-plugin .quick-mover-destination-item input,
+    .quick-mover-plugin .quick-mover-destination-item select {
         font-size: var(--font-ui-smaller);
         min-height: var(--size-4-8);
         padding: var(--size-4-1) var(--size-4-2);
     }
 
-    .suggestion-container {
+    .quick-mover-plugin .suggestion-container {
         max-height: 40vh;
         width: calc(100% - var(--size-4-4));
         left: var(--size-4-2);
@@ -155,7 +159,7 @@
         box-shadow: var(--shadow-s);
     }
 
-    .suggestion-item {
+    .quick-mover-plugin .suggestion-item {
         padding: var(--size-4-2);
         min-height: var(--size-4-9);
         font-size: var(--font-ui-small);
@@ -163,7 +167,7 @@
         word-break: break-word;
     }
 
-    button {
+    .quick-mover-plugin button {
         padding: var(--size-4-1) var(--size-4-2);
         height: auto;
         min-width: var(--size-4-8);
