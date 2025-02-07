@@ -1,0 +1,176 @@
+.quick-mover-grid-header {
+    display: grid;
+    grid-template-columns: 2fr 3fr 2fr 30px;
+    gap: 12px;
+    padding: 0 24px;
+    margin-bottom: 12px;
+    margin-top: 24px;
+}
+
+.quick-mover-header {
+    color: var(--text-muted);
+    font-size: 0.8em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.quick-mover-destination-item {
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 4px;
+    padding: 8px;
+    margin-bottom: 8px;
+}
+
+.quick-mover-destination-item .setting-item-control {
+    display: grid;
+    grid-template-columns: 2fr 3fr 2fr 30px;
+    gap: 12px;
+    align-items: center;
+}
+
+.quick-mover-destination-item input {
+    width: 100%;
+}
+
+.quick-mover-destinations {
+    margin-top: 24px;
+}
+
+.suggestion-container {
+    position: absolute;
+    background: var(--background-primary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    width: 100%;
+    padding: 4px; /* Add padding */
+}
+
+.suggestion-item {
+    padding: 6px 8px; /* Reduce padding */
+    cursor: pointer;
+    border-radius: 3px; /* Add border-radius */
+}
+
+.suggestion-item:hover {
+    background: var(--background-modifier-hover);
+}
+
+.setting-item-info {
+    display: none !important;
+}
+
+.search-input-container:before {
+    display: none !important;
+}
+
+.search-input-container input {
+    padding-inline-start: .5rem !important;
+}
+
+/* Add responsive styles */
+@media screen and (max-width: 768px) {
+    .quick-mover-grid-header {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 0 12px;
+    }
+
+    .quick-mover-destination-item .setting-item-control {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .quick-mover-destination-item {
+        padding: 12px;
+        margin-bottom: 12px;
+    }
+
+    /* Improve touch targets */
+    .quick-mover-destination-item input,
+    .quick-mover-destination-item select,
+    .quick-mover-destination-item button {
+        min-height: 36px;
+        padding: 8px;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Hide header labels on mobile */
+    .quick-mover-header {
+        display: none;
+    }
+
+    /* Stack the settings vertically */
+    .setting-item-info,
+    .setting-item-control {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+/* Improve suggestion list on mobile */
+@media screen and (max-width: 768px) {
+    .suggestion-item {
+        padding: 12px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+
+    .suggestion-container {
+        max-height: 50vh;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .quick-mover-destination-item {
+        padding: 8px;
+        margin-bottom: 8px;
+    }
+
+    .quick-mover-destination-item .setting-item-control {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .quick-mover-destination-item input,
+    .quick-mover-destination-item select {
+        font-size: 14px;
+        min-height: 32px;
+        padding: 4px 8px;
+    }
+
+    .suggestion-container {
+        max-height: 40vh;
+        width: calc(100% - 16px);
+        left: 8px;
+        right: 8px;
+    }
+
+    .suggestion-item {
+        padding: 8px;
+        min-height: 36px;
+        font-size: 14px;
+        white-space: normal;
+        word-break: break-word;
+    }
+
+    .quick-mover-grid-header {
+        padding: 0 8px;
+        margin-bottom: 8px;
+        margin-top: 16px;
+    }
+
+    button {
+        padding: 4px 8px;
+        height: auto;
+        min-width: 28px;
+    }
+}

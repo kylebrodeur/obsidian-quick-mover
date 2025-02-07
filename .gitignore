@@ -1,0 +1,31 @@
+# Development environment
+node_modules/
+.DS_Store
+.idea/
+.vscode/
+
+# Build output
+dist/
+main.js
+*.js.map
+
+# npm/yarn files
+package-lock.json
+yarn.lock
+yarn-error.log
+
+# Environment variables
+.env
+.env.local
+
+# Testing
+coverage/
+.nyc_output/
+
+# Temporary files
+*.log
+.hot-reload.json
+data.json
+
+# Personal Obsidian files
+.obsidian/
