@@ -23,6 +23,13 @@ class FolderSuggest extends AbstractInputSuggest<TFolder> {
         this.close();
     }
 }
+interface Command {
+    removeCommand(id: string): void;
+}
+
+interface ExtendedApp extends App {
+    commands: Command;
+}
 
 interface QuickMoveDestination {
     id: string;  // Add unique identifier
@@ -159,11 +166,10 @@ export default class QuickMoverPlugin extends Plugin {
     }
 
     public registerCommands(): void {
-        // Remove existing commands first
+        const app = this.app as ExtendedApp;
         this.settings.destinations.forEach(dest => {
             const commandId = `quick-mover:move-to-${dest.id}`;
-            // @ts-ignore
-            this.app.commands.removeCommand(commandId);
+            app.commands.removeCommand(commandId);
         });
 
         // Register new commands
@@ -234,7 +240,7 @@ class QuickMoverSettingTab extends PluginSettingTab {
         }
 
         this.plugin.settings.destinations.forEach((dest, index) => {
-            const setting = new Setting(destinationsContainer)
+            new Setting(destinationsContainer)
                 .setClass('quick-mover-destination-item')
                 .addText(text => text
                     .setPlaceholder('Destination name')
@@ -260,7 +266,7 @@ class QuickMoverSettingTab extends PluginSettingTab {
                     .addOption('advance', 'Advance to next')
                     .setValue(dest.action)
                     .onChange(async (value) => {
-                        const action = value as 'none' | 'close' | 'advance';
+                        value as 'none' | 'close' | 'advance';
                         this.plugin.settings.destinations[index].action = value as 'none' | 'close' | 'advance';
                         await this.plugin.saveSettings();
                     }))
