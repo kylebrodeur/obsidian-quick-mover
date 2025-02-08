@@ -1,7 +1,3 @@
-.quick-mover-plugin {
-    /* Root level styles if needed */
-}
-
 .quick-mover-plugin .quick-mover-grid-header {
     display: grid;
     grid-template-columns: 2fr 3fr 2fr var(--size-4-8);

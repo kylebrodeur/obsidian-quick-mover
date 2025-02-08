@@ -187,7 +187,7 @@ class QuickMoverSettingTab extends PluginSettingTab {
     display(): void {
         const { containerEl } = this;
         containerEl.empty();
-
+        this.containerEl.addClass('quick-mover-plugin');
         containerEl.createEl('h2', { text: 'Quick Mover Settings' });
         this.addSectionDescription(containerEl);
         this.addAddDestinationButton(containerEl);
