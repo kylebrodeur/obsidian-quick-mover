@@ -61,7 +61,7 @@
     width: 100% !important;
 }
 
-.quick-mover-plugin .search-input-container:before {
+.quick-mover-plugin .search-input-container::before {
     display: none !important;
 }
 
@@ -70,11 +70,9 @@
 }
 
 /* Add responsive styles */
-@media screen and (max-width: 768px) {
+@media screen and (width <= 768px) {
     .quick-mover-plugin .quick-mover-grid-header {
-        grid-template-columns: 1fr;
-        gap: var(--size-4-2);
-        padding: 0 var(--size-4-3);
+        display: none;
     }
 
     .quick-mover-plugin .quick-mover-destination-item .setting-item-control {
@@ -98,11 +96,6 @@
         box-sizing: border-box;
     }
 
-    /* Hide header labels on mobile */
-    .quick-mover-plugin .quick-mover-grid-header {
-        display: none;
-    }
-
     /* Stack the settings vertically */
     .quick-mover-plugin .setting-item-info,
     .quick-mover-plugin .setting-item-control {
@@ -112,7 +105,7 @@
 }
 
 /* Improve suggestion list on mobile */
-@media screen and (max-width: 768px) {
+@media screen and (width <= 768px) {
     .quick-mover-plugin .suggestion-item {
         padding: var(--size-4-3);
         min-height: var(--size-4-11);
@@ -125,10 +118,11 @@
     }
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (width <= 550px) {
     .quick-mover-plugin .quick-mover-destinations {
         margin-top: 0 !important;
     }
+
     .quick-mover-plugin .quick-mover-destination-item {
         padding: var(--size-4-2);
         margin-bottom: var(--size-4-2);
@@ -160,7 +154,6 @@
         min-height: var(--size-4-9);
         font-size: var(--font-ui-small);
         white-space: normal;
-        word-break: break-word;
     }
 
     .quick-mover-plugin button {

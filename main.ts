@@ -1,4 +1,4 @@
-import { App, Plugin, PluginSettingTab, Setting, Notice, TFile, TFolder, AbstractInputSuggest, TAbstractFile, MarkdownView, WorkspaceLeaf } from 'obsidian';
+import { App, Plugin, PluginSettingTab, Setting, Notice, TFile, TFolder, AbstractInputSuggest, MarkdownView, WorkspaceLeaf } from 'obsidian';
 
 class FolderSuggest extends AbstractInputSuggest<TFolder> {
     constructor(public app: App, public inputEl: HTMLInputElement) {
@@ -162,7 +162,8 @@ export default class QuickMoverPlugin extends Plugin {
         // Remove existing commands first
         this.settings.destinations.forEach(dest => {
             const commandId = `quick-mover:move-to-${dest.id}`;
-            (this.app as any).commands.removeCommand(commandId);
+            // @ts-ignore
+            this.app.commands.removeCommand(commandId);
         });
 
         // Register new commands

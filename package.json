@@ -6,9 +6,16 @@
   "scripts": {
     "dev": "node esbuild.config.mjs",
     "build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
-    "version": "node version-bump.mjs && git add manifest.json versions.json"
+    "version": "node version-bump.mjs && git add manifest.json versions.json",
+    "lint:css": "stylelint \"*.css\"",
+    "lint:ts": "eslint \"**/*.ts\"",
+    "lint": "npm run lint:css && npm run lint:ts",
+    "lint:fix": "npm run lint:css -- --fix && npm run lint:ts -- --fix"
   },
-  "keywords": ["obsidian", "plugin"],
+  "keywords": [
+    "obsidian",
+    "plugin"
+  ],
   "author": "Kyle Brodeur",
   "license": "MIT",
   "devDependencies": {
@@ -17,7 +24,10 @@
     "@typescript-eslint/parser": "5.29.0",
     "builtin-modules": "3.3.0",
     "esbuild": "0.17.3",
+    "eslint": "^8.0.0",
     "obsidian": "latest",
+    "stylelint": "^16.14.1",
+    "stylelint-config-standard": "^37.0.0",
     "tslib": "2.4.0",
     "typescript": "4.7.4"
   }
