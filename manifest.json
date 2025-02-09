@@ -1,7 +1,7 @@
 {
 	"id": "quick-mover",
 	"name": "Quick Mover",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"minAppVersion": "0.15.0",
 	"description": "Quickly move files to predefined folders with customizable actions",
 	"author": "Kyle Brodeur",
