@@ -1,6 +1,6 @@
 {
   "name": "quick-mover",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Quickly move files to predefined folders",
   "main": "main.js",
   "scripts": {

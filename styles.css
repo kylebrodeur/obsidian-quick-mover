@@ -53,10 +53,6 @@
     background: var(--background-modifier-hover);
 }
 
-.quick-mover-plugin .setting-item-info {
-    display: none !important;
-}
-
 .quick-mover-plugin .search-input-container {
     width: 100% !important;
 }
@@ -161,4 +157,42 @@
         height: auto;
         min-width: var(--size-4-8);
     }
+}
+
+/* More specific selectors to prevent affecting other plugins */
+body .quick-mover-plugin.plugin-settings .quick-mover-grid-header {
+    display: grid;
+    grid-template-columns: 2fr 3fr 2fr var(--size-4-8);
+    gap: var(--size-4-3);
+    padding: 0 var(--size-4-6);
+    margin-bottom: var(--size-4-2);
+    color: var(--text-muted);
+    font-size: 0.8em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: var(--size-4-6);
+}
+
+/* Make settings items visible explicitly */
+body .quick-mover-plugin.plugin-settings .setting-item {
+    display: flex;
+    color: var(--text-normal);
+}
+
+body .quick-mover-plugin.plugin-settings .setting-item-info {
+    color: var(--text-normal);
+    opacity: 1;
+}
+
+/* Ensure other plugin elements remain visible */
+.vertical-tab-content-container .setting-item {
+    color: var(--text-normal) !important;
+    opacity: 1 !important;
+}
+
+.vertical-tab-content-container .setting-item-info,
+.vertical-tab-content-container .setting-item-description {
+    color: var(--text-muted) !important;
+    opacity: 1 !important;
 }
